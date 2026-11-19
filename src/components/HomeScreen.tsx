@@ -43,6 +43,7 @@ import {
   MapPin,
   BarChart3,
   Scan,
+  Users,
   Sprout,
 } from "lucide-react-native"
 
@@ -522,6 +523,50 @@ export default function HomeScreen({ onNavigate }: { onNavigate: (tab: Tab) => v
               </ScalePressable>
             ))}
           </View>
+        </FadeSlideIn>
+
+        {/* FarmerConnect Community Q&A Banner */}
+        <FadeSlideIn delay={160} style={styles.section}>
+          <ScalePressable
+            onPress={() => open("farmerConnect")}
+            scaleTo={0.98}
+            style={styles.communityBannerCard}
+          >
+            <View style={styles.communityBannerHeader}>
+              <View style={styles.communityIconCircle}>
+                <Users size={22} color="#ffffff" />
+              </View>
+              <View style={{ flex: 1, marginLeft: 12 }}>
+                <View style={{ flexDirection: "row", alignItems: "center", gap: 6 }}>
+                  <Text style={styles.communityTitle}>
+                    {isKn ? "ರೈತ ಸಂಪರ್ಕ • ಸಮುದಾಯ" : "FarmerConnect • Community"}
+                  </Text>
+                  <View style={styles.communityLivePill}>
+                    <View style={styles.communityGreenDot} />
+                    <Text style={styles.communityLiveText}>{isKn ? "ಲೈವ್" : "Live"}</Text>
+                  </View>
+                </View>
+                <Text style={styles.communitySubtitle} numberOfLines={2}>
+                  {isKn
+                    ? "ಕೃಷಿ ತಜ್ಞರು ಮತ್ತು 12,000+ ರೈತರಿಂದ ನೇರ ರೋಗ ಪರಿಹಾರಗಳು ಹಾಗೂ ಸಲಹೆಗಳು"
+                    : "Direct crop solutions from UAS Agronomists & 12,000+ local farmers"}
+                </Text>
+              </View>
+              <ChevronRight size={18} color="#256428" />
+            </View>
+
+            <View style={styles.communityTagsRow}>
+              <View style={styles.communityTag}>
+                <Text style={styles.communityTagText}>🍅 {isKn ? "ಟೊಮೆಟೊ ಅಂಗಮಾರಿ" : "Tomato Blight"}</Text>
+              </View>
+              <View style={styles.communityTag}>
+                <Text style={styles.communityTagText}>🌾 {isKn ? "ರಾಗಿ ರೋಗ" : "Ragi Blast"}</Text>
+              </View>
+              <View style={styles.communityTag}>
+                <Text style={styles.communityTagText}>🌴 {isKn ? "ತೆಂಗಿನ ದುಂಬಿ" : "Coconut Beetle"}</Text>
+              </View>
+            </View>
+          </ScalePressable>
         </FadeSlideIn>
 
         {/* Today's Advisory Tips */}
@@ -1171,5 +1216,81 @@ const styles = StyleSheet.create({
     fontSize: 11,
     fontWeight: "700",
     color: "#15803d",
+  },
+  communityBannerCard: {
+    backgroundColor: "#ffffff",
+    borderRadius: 18,
+    padding: 16,
+    borderWidth: 1.5,
+    borderColor: "#bbf7d0",
+    shadowColor: "#000",
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.06,
+    shadowRadius: 6,
+    elevation: 3,
+  },
+  communityBannerHeader: {
+    flexDirection: "row",
+    alignItems: "center",
+  },
+  communityIconCircle: {
+    width: 44,
+    height: 44,
+    borderRadius: 22,
+    backgroundColor: "#256428",
+    alignItems: "center",
+    justifyContent: "center",
+  },
+  communityTitle: {
+    fontSize: 15,
+    fontWeight: "700",
+    color: "#111827",
+  },
+  communityLivePill: {
+    flexDirection: "row",
+    alignItems: "center",
+    gap: 4,
+    backgroundColor: "#dcfce7",
+    paddingHorizontal: 6,
+    paddingVertical: 2,
+    borderRadius: 10,
+  },
+  communityGreenDot: {
+    width: 6,
+    height: 6,
+    borderRadius: 3,
+    backgroundColor: "#16a34a",
+  },
+  communityLiveText: {
+    fontSize: 10,
+    fontWeight: "700",
+    color: "#15803d",
+  },
+  communitySubtitle: {
+    fontSize: 12,
+    color: "#4b5563",
+    marginTop: 2,
+    lineHeight: 16,
+  },
+  communityTagsRow: {
+    flexDirection: "row",
+    gap: 8,
+    marginTop: 12,
+    paddingTop: 10,
+    borderTopWidth: 1,
+    borderTopColor: "#f3f4f6",
+  },
+  communityTag: {
+    backgroundColor: "#f9fafb",
+    paddingHorizontal: 8,
+    paddingVertical: 4,
+    borderRadius: 8,
+    borderWidth: 1,
+    borderColor: "#e5e7eb",
+  },
+  communityTagText: {
+    fontSize: 11,
+    color: "#374151",
+    fontWeight: "500",
   },
 })

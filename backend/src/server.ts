@@ -18,6 +18,7 @@ import insightsRoutes from "./routes/insights.routes.js"
 import equipmentRoutes from "./routes/equipment.routes.js"
 import insuranceRoutes from "./routes/insurance.routes.js"
 import adminRoutes from "./routes/admin.routes.js"
+import farmerConnectRoutes from "./routes/farmerConnect.routes.js"
 import {
   DELETE_ACCOUNT_HTML,
   PRIVACY_POLICY_HTML,
@@ -74,6 +75,7 @@ app.get("/api", (_req: Request, res: Response) => {
       "/api/insights",
       "/api/equipment",
       "/api/insurance",
+      "/api/community",
       "/api/admin",
     ],
     timestamp: new Date().toISOString(),
@@ -117,6 +119,8 @@ app.use("/api/auth", authRoutes)
 app.use("/api/insights", insightsRoutes)
 app.use("/api/equipment", equipmentRoutes)
 app.use("/api/insurance", insuranceRoutes)
+app.use("/api/community", farmerConnectRoutes)
+app.use("/api/farmer-connect", farmerConnectRoutes)
 app.use("/api/admin", adminRoutes)
 
 // Global JSON error handler (ensures multer/upload and runtime errors return JSON instead of HTML)

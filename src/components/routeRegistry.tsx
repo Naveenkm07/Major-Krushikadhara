@@ -25,6 +25,8 @@ import ScanResultScreen from "./ScanResultScreen"
 import ScanHistoryScreen from "./ScanHistoryScreen"
 import EquipmentRentalScreen from "./EquipmentRentalScreen"
 import { PrivacyPolicyScreen, TermsOfServiceScreen } from "./LegalScreen"
+import FarmerConnectScreen from "./FarmerConnectScreen"
+import { AskQuestionScreen, QuestionDetailScreen } from "./FarmerConnectSubflows"
 
 // Subflow Screen Bundles
 import {
@@ -125,5 +127,10 @@ export const routeScreens: Record<Route, ComponentType> = {
   diseaseResult: DiagnosisResultScreen,
   lowConfidence: LowConfidenceScreen,
   aiPredictions: AiPredictionsScreen,
+
+  // FarmerConnect Community Q&A
+  farmerConnect: FarmerConnectScreen,
+  askQuestion: AskQuestionScreen,
+  questionDetail: QuestionDetailScreen,
 }
 

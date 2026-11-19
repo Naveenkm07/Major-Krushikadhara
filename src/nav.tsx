@@ -48,6 +48,10 @@ export type Route =
   | "lowConfidence"
   | "aiPredictions"
   | "scanHistory"
+  // FarmerConnect Community Q&A
+  | "farmerConnect"
+  | "askQuestion"
+  | "questionDetail"
   // New feature screens
   | "schemeDetail"
   | "weather"

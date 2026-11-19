@@ -676,8 +676,13 @@ export default function ScanResultScreen() {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
+    position: "absolute",
+    top: 0,
+    bottom: 0,
+    left: 0,
+    right: 0,
     backgroundColor: "#f7f8ec",
+    zIndex: 100,
   },
   header: {
     backgroundColor: "#256428",

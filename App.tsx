@@ -211,7 +211,11 @@ function MainApp() {
       <BottomNav active={tab} onChange={changeTab} />
 
       {/* Overlay Stack Route Screen */}
-      {RouteScreen && <RouteScreen key={routeKey} />}
+      {RouteScreen && (
+        <View style={styles.overlayRoute}>
+          <RouteScreen key={routeKey} />
+        </View>
+      )}
     </Animated.View>
   )
 }
@@ -246,6 +250,15 @@ const styles = StyleSheet.create({
   },
   tabContent: {
     flex: 1,
+  },
+  overlayRoute: {
+    position: "absolute",
+    top: 0,
+    bottom: 0,
+    left: 0,
+    right: 0,
+    backgroundColor: "#f7f8ec",
+    zIndex: 999,
   },
   errorContainer: {
     flex: 1,
